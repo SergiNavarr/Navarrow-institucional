@@ -3,29 +3,49 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const geistSans = Geist({
+  subsets: ['latin'],
+  variable: '--font-geist-sans',
+})
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist-mono',
+})
 
 export const metadata: Metadata = {
-  title: 'NavArrow | Your Integrated Technology Partner',
-  description: 'We empower businesses with professional web development and specialized technical support. High-performance solutions for the modern era.',
-  generator: 'v0.app',
+  title: 'NavArrow | Desarrollo Web y Soporte Técnico',
+  description: 'Expertos en desarrollo de software y soporte técnico especializado para Pymes. Impulsamos su negocio con soluciones tecnológicas reales y profesionales.',
+  keywords: ['Desarrollo Web Corrientes', 'Soporte Técnico PC', 'Programación React .NET', 'Digitalización Pymes', 'NavArrow', 'Soluciones IT'],
+  authors: [{ name: 'NavArrow Team' }],
+  creator: 'NavArrow',
+  
+  openGraph: {
+    title: 'NavArrow | Soluciones Digitales',
+    description: 'Transformamos su negocio local con tecnología de alto rendimiento. Desarrollo web y mantenimiento técnico profesional.',
+    url: 'https://navarrow.com.ar',
+    siteName: 'NavArrow',
+    locale: 'es_AR',
+    type: 'website',
+  },
+
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
+        url: '/monograma-trim.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon-dark-32x32.png',
+        url: '/monograma-trim.png',
         media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
       },
     ],
     apple: '/apple-icon.png',
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
@@ -35,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="es" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

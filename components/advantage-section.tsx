@@ -4,23 +4,23 @@ export function AdvantageSection() {
   const advantages = [
     {
       icon: GraduationCap,
-      title: "University-Educated Team",
-      description: "Our Analyst Programmers hold university degrees, bringing academic rigor and professional expertise to every project."
+      title: "Equipo Universitario",
+      description: "Nuestro equipo cuenta con títulos universitarios, aportando rigor académico y experiencia profesional a cada proyecto."
     },
     {
       icon: Layers,
-      title: "Clean Architecture",
-      description: "We follow industry best practices and clean code principles to deliver maintainable, scalable solutions."
+      title: "Arquitectura Limpia",
+      description: "Seguimos las mejores prácticas de la industria y principios de 'Clean Code' para entregar soluciones escalables y fáciles de mantener."
     },
     {
       icon: Shield,
-      title: "Reliability & Security",
-      description: "Your business deserves dependable systems. We build with security and reliability as core principles."
+      title: "Confiabilidad y Seguridad",
+      description: "Su empresa merece sistemas estables. Construimos bajo principios fundamentales de seguridad y alta disponibilidad."
     },
     {
       icon: Clock,
-      title: "Professional Maintenance",
-      description: "Our maintenance plans ensure your systems stay updated, secure, and performing at their best."
+      title: "Mantenimiento Profesional",
+      description: "Nuestros planes de abono aseguran que sus sistemas se mantengan actualizados, seguros y rindiendo al máximo nivel."
     }
   ]
 
@@ -28,22 +28,27 @@ export function AdvantageSection() {
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
+          {/* Contenido Izquierdo */}
           <div>
             <span className="text-accent font-semibold uppercase tracking-wider text-sm">
-              Why Choose Us
+              Por qué elegirnos
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-primary mt-4 mb-6 text-balance">
-              The NavArrow Advantage
+              La Diferencia NavArrow
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed text-pretty">
-              We combine academic excellence with real-world experience. Our team of 
-              university-educated Analyst Programmers delivers professional solutions 
-              that stand the test of time.
+              Combinamos la excelencia académica con experiencia real en el mercado. Nuestro equipo de 
+              Analistas Programadores Universitarios entrega soluciones profesionales diseñadas 
+              para perdurar en el tiempo.
             </p>
 
             <div className="space-y-4">
-              {["Certified developers", "Agile methodology", "24/7 support available", "Long-term partnerships"].map((item) => (
+              {[
+                "Desarrolladores certificados", 
+                "Metodologías ágiles", 
+                "Soporte técnico especializado", 
+                "Alianzas a largo plazo"
+              ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-accent" />
                   <span className="text-primary font-medium">{item}</span>
@@ -52,7 +57,7 @@ export function AdvantageSection() {
             </div>
           </div>
 
-          {/* Right Grid */}
+          {/* Cuadrícula Derecha */}
           <div className="grid sm:grid-cols-2 gap-6">
             {advantages.map((advantage, index) => (
               <div 

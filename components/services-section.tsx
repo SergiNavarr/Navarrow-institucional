@@ -10,14 +10,14 @@ export function ServicesSection() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-accent font-semibold uppercase tracking-wider text-sm">
-            What We Do
+            Qué hacemos
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-primary mt-4 mb-6 text-balance">
-            The Two Pillars of NavArrow
+            Los dos pilares de NavArrow
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty">
-            Our collection of tech services spans the core needs of modern businesses. 
-            Explore how we help you transform.
+            Nuestra gama de servicios tecnológicos abarca las necesidades esenciales de las empresas modernas.
+            Descubre cómo te ayudamos a transformarte.
           </p>
         </div>
 
@@ -30,14 +30,14 @@ export function ServicesSection() {
               <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
                 <Code2 className="w-7 h-7 text-accent" />
               </div>
-              
+
               <h3 className="text-2xl font-bold text-primary mb-4">
-                Pro Web Development
+                Desarrollo web profesional
               </h3>
-              
+
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                We build high-performance, scalable web applications using modern 
-                technologies. From concept to deployment, we deliver excellence.
+                Creamos aplicaciones web escalables y de alto rendimiento utilizando tecnologías modernas.
+                Desde el concepto hasta la implementación, ofrecemos excelencia.
               </p>
 
               <div className="flex flex-wrap gap-2 mb-6">
@@ -55,16 +55,16 @@ export function ServicesSection() {
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <Zap className="w-4 h-4 text-accent" />
-                  <span className="text-sm">High-performance applications</span>
+                  <span className="text-sm">Aplicaciones de alto rendimiento</span>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <Shield className="w-4 h-4 text-accent" />
-                  <span className="text-sm">Secure & scalable architecture</span>
+                  <span className="text-sm">Arquitectura segura y escalable</span>
                 </div>
               </div>
 
               <button className="mt-8 flex items-center gap-2 text-accent font-semibold group-hover:gap-3 transition-all">
-                Learn more
+                Saber más
                 <ArrowRight className="w-4 h-4" />
               </button>
             </CardContent>
@@ -77,14 +77,14 @@ export function ServicesSection() {
               <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
                 <Monitor className="w-7 h-7 text-white" />
               </div>
-              
+
               <h3 className="text-2xl font-bold text-white mb-4">
-                Specialized Technical Support
+                Soporte Técnico Especializado
               </h3>
-              
+
               <p className="text-white/70 mb-6 leading-relaxed">
-                Comprehensive IT solutions to keep your business running smoothly. 
-                From hardware to software, we ensure optimal performance.
+                Soluciones integrales de IT para que tu negocio funcione sin interrupciones.
+                Desde el hardware hasta el software, garantizamos un rendimiento óptimo.
               </p>
 
               <div className="flex flex-wrap gap-2 mb-6">
@@ -95,23 +95,23 @@ export function ServicesSection() {
                   Software
                 </span>
                 <span className="px-3 py-1 bg-white/10 text-white rounded-full text-sm font-medium">
-                  Support
+                  Soporte
                 </span>
               </div>
 
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-white/70">
                   <Cpu className="w-4 h-4 text-white" />
-                  <span className="text-sm">Hardware maintenance</span>
+                  <span className="text-sm">Mantenimiento de hardware</span>
                 </div>
                 <div className="flex items-center gap-3 text-white/70">
                   <Wrench className="w-4 h-4 text-white" />
-                  <span className="text-sm">Software optimization</span>
+                  <span className="text-sm">Optimización de software</span>
                 </div>
               </div>
 
               <button className="mt-8 flex items-center gap-2 text-white font-semibold group-hover:gap-3 transition-all">
-                Learn more
+                Saber más
                 <ArrowRight className="w-4 h-4" />
               </button>
             </CardContent>

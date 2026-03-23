@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Menu, X, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -13,24 +14,30 @@ export function Navigation() {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2 -mt-1">
             <div className="flex items-center gap-1">
-              <span className="text-2xl font-bold text-primary">Nav</span>
-              <span className="text-2xl font-bold text-accent">Arrow</span>
-              <ArrowUpRight className="w-5 h-5 text-accent -ml-1" />
+              <Image
+                src="/logo.png"
+                alt="NavArrow Logo"
+                width={150}
+                height={40}
+                className="h-10"
+                style={{ width: 'auto' }}
+                priority
+              />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link 
-              href="#services" 
+            <Link
+              href="#services"
               className="text-muted-foreground hover:text-primary transition-colors font-medium"
             >
               Services
             </Link>
-            <Link 
-              href="#portfolio" 
+            <Link
+              href="#portfolio"
               className="text-muted-foreground hover:text-primary transition-colors font-medium"
             >
               Portfolio
@@ -57,15 +64,15 @@ export function Navigation() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden pt-4 pb-2 space-y-4">
-            <Link 
-              href="#services" 
+            <Link
+              href="#services"
               className="block text-muted-foreground hover:text-primary transition-colors font-medium"
               onClick={() => setIsOpen(false)}
             >
               Services
             </Link>
-            <Link 
-              href="#portfolio" 
+            <Link
+              href="#portfolio"
               className="block text-muted-foreground hover:text-primary transition-colors font-medium"
               onClick={() => setIsOpen(false)}
             >
