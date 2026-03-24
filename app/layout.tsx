@@ -59,7 +59,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: 'NavArrow',
-    image: 'https://navarrow.com.ar/monograma-trim.png',
+    image: '/monograma-trim.png',
     description: 'Expertos en desarrollo de software y soporte técnico especializado para Pymes.',
     '@id': 'https://navarrow.com.ar',
     url: 'https://navarrow.com.ar',
