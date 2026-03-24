@@ -15,16 +15,28 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 -mt-1">
-            <div className="flex items-center gap-1">
-              <Image
-                src="/logo.png"
-                alt="NavArrow Logo"
-                width={150}
-                height={40}
-                className="h-10"
-                style={{ width: 'auto' }}
-                priority
-              />
+            <div className="flex items-center">
+              {/* Versión Monograma*/}
+              <div className="block md:hidden">
+                <Image
+                  src="/monograma-trim.png"
+                  alt="NavArrow Monogram"
+                  width={40}
+                  height={40}
+                  priority
+                />
+              </div>
+
+              {/* Versión Logo Completo*/}
+              <div className="hidden md:block">
+                <Image
+                  src="/logo.png"
+                  alt="NavArrow Logo"
+                  width={150}
+                  height={40}
+                  priority
+                />
+              </div>
             </div>
           </Link>
 
