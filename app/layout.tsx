@@ -54,8 +54,44 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+
+ const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'NavArrow',
+    image: 'https://navarrow.com.ar/monograma-trim.png',
+    description: 'Expertos en desarrollo de software y soporte técnico especializado para Pymes.',
+    '@id': 'https://navarrow.com.ar',
+    url: 'https://navarrow.com.ar',
+    telephone: '+543794003967',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Centro',
+      addressLocality: 'Corrientes',
+      addressRegion: 'Corrientes',
+      postalCode: 'W3400',
+      addressCountry: 'AR'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: -27.4692,
+      longitude: -58.8306
+    },
+    priceRange: '$$',
+    sameAs: [
+      'https://github.com/SergiNavarr',
+      'https://linkedin.com/in/tu-perfil'
+    ]
+  }
+
   return (
     <html lang="es" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="font-sans antialiased">
         {children}
         <Analytics />
