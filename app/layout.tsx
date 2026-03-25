@@ -29,20 +29,6 @@ export const metadata: Metadata = {
     type: 'website',
   },
 
-  icons: {
-    icon: [
-      {
-        url: '/monograma-trim.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/monograma-trim.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
-
   robots: {
     index: true,
     follow: true,
@@ -59,7 +45,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: 'NavArrow',
-    image: '/monograma-trim.png',
+    image: 'https://navarrow.com.ar/monograma-trim.png',
     description: 'Expertos en desarrollo de software y soporte técnico especializado para Pymes.',
     '@id': 'https://navarrow.com.ar',
     url: 'https://navarrow.com.ar',

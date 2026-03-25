@@ -17,7 +17,7 @@ export function HeroSection() {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-full border border-border mb-8">
             <Sparkles className="w-4 h-4 text-accent" />
             <span className="text-sm font-medium text-muted-foreground">
-              Equipo especializado con estudios universitarios
+              Soluciones digitales para tu negocio
             </span>
           </div>
 

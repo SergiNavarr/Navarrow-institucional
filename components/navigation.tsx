@@ -46,7 +46,7 @@ export function Navigation() {
               href="#services"
               className="text-muted-foreground hover:text-primary transition-colors font-medium"
             >
-              Services
+              Servicios
             </Link>
             <Link
               href="#portfolio"
@@ -55,7 +55,7 @@ export function Navigation() {
               Portfolio
             </Link>
             <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              Contact Us
+              Contactanos
             </Button>
           </div>
 

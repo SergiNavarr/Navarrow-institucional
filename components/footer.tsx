@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowUpRight, Linkedin, Twitter, Github, Mail, Phone, MapPin } from "lucide-react"
+import { ArrowUpRight, Linkedin, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react"
 import Image from "next/image"
 
 export function Footer() {
@@ -16,8 +16,6 @@ export function Footer() {
                   alt="NavArrow Logo"
                   width={150}
                   height={40}
-                  className="h-10"
-                  style={{ width: 'auto' }}
                   priority
                 />
               </div>
@@ -28,25 +26,25 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/navarrow-ar"
                 className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://x.com/Navarrow_ctes"
                 className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/navarrow_ctes"
                 className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-colors"
-                aria-label="GitHub"
+                aria-label="Instagram"
               >
-                <Github className="w-5 h-5" />
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -111,11 +109,11 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-accent mt-0.5" />
-                <span className="text-white/70">info@navarrow.com</span>
+                <span className="text-white/70">contacto@navarrow.com.ar</span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-accent mt-0.5" />
-                <span className="text-white/70">+54 (379) 000-0000</span>
+                <span className="text-white/70">+54 (379) 4003967</span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-accent mt-0.5" />

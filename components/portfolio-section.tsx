@@ -18,25 +18,13 @@ export function PortfolioSection() {
         </div>
 
         {/* Sistema de Filtros con Tabs */}
-        <Tabs defaultValue="todos" className="w-full">
+        <Tabs defaultValue="webs" className="w-full">
           <div className="flex justify-center mb-12">
             <TabsList className="bg-background border border-border p-1">
-              <TabsTrigger value="todos">Todos</TabsTrigger>
               <TabsTrigger value="webs">Sitios Web</TabsTrigger>
               <TabsTrigger value="software">Software</TabsTrigger>
             </TabsList>
           </div>
-
-          {/*Todos los proyectos */}
-          <TabsContent value="todos">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {renderBusinessProject()}
-              <div className="space-y-8">
-                {renderCodeBites()}
-                {renderEventflow()}
-              </div>
-            </div>
-          </TabsContent>
 
           {/*Webs de Negocios */}
           <TabsContent value="webs">
@@ -115,7 +103,7 @@ function renderEventflow() {
           <Monitor className="w-6 h-6 text-accent" />
         </div>
         <h3 className="text-lg font-bold text-primary mb-2">Eventflow</h3>
-        <p className="text-muted-foreground text-sm">Monitoreo de eventos técnicos en tiempo real con PostgreSQL.</p>
+        <p className="text-muted-foreground text-sm">Red Social orientada a la creacion de eventos comunitarios.</p>
       </CardContent>
     </Card>
   )
