@@ -43,7 +43,7 @@ export function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <Link
-              href="#services"
+              href="#servicios"
               className="text-muted-foreground hover:text-primary transition-colors font-medium"
             >
               Servicios
@@ -54,8 +54,10 @@ export function Navigation() {
             >
               Portfolio
             </Link>
-            <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              Contactanos
+            <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+              <Link href="#contacto">
+                Contactanos
+              </Link>
             </Button>
           </div>
 
@@ -77,7 +79,7 @@ export function Navigation() {
         {isOpen && (
           <div className="md:hidden pt-4 pb-2 space-y-4">
             <Link
-              href="#services"
+              href="#servicios"
               className="block text-muted-foreground hover:text-primary transition-colors font-medium"
               onClick={() => setIsOpen(false)}
             >
@@ -90,8 +92,10 @@ export function Navigation() {
             >
               Portfolio
             </Link>
-            <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-              Contact Us
+            <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+              <Link href="#contacto" onClick={() => setIsOpen(false)}>
+                Contactanos
+              </Link>
             </Button>
           </div>
         )}

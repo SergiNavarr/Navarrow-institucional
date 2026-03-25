@@ -1,5 +1,6 @@
 import { ArrowRight, Code2, Layers, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function HeroSection() {
   return (
@@ -36,18 +37,25 @@ export function HeroSection() {
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
+              asChild
               size="lg"
               className="bg-accent hover:bg-accent/90 text-accent-foreground gap-2 px-8 py-6 text-lg"
             >
-              Obtenga un diagnóstico gratuito
-              <ArrowRight className="w-5 h-5" />
+              <Link href="#contacto">
+                Obtenga un diagnóstico gratuito
+                <ArrowRight className="w-5 h-5" />
+              </Link>
             </Button>
+            
             <Button
+              asChild
               size="lg"
               variant="outline"
               className="border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground gap-2 px-8 py-6 text-lg"
             >
-              Más información
+              <Link href="#servicios">
+                Más información
+              </Link>
             </Button>
           </div>
 
