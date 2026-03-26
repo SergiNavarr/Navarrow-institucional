@@ -21,10 +21,6 @@ export function ContactSection() {
         setIsSubmitting(true)
 
         // Webhook de n8n para más adelante
-        // const formData = new FormData(e.currentTarget)
-        // const data = Object.fromEntries(formData)
-        // await fetch('TU_URL_DE_N8N', { method: 'POST', body: JSON.stringify(data) })
-
         setTimeout(() => {
             setIsSubmitting(false)
             alert("¡Mensaje enviado! Nos pondremos en contacto a la brevedad.")
@@ -49,46 +45,50 @@ export function ContactSection() {
                             </p>
                         </div>
 
-                        <div className="space-y-6">
+                        <div className="space-y-6 overflow-hidden"> {/* Ocultamos desbordes extraños */}
+
+                            {/* ÍTEM CORREO  */}
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
                                     <Mail className="w-6 h-6 text-primary" />
                                 </div>
-                                <div>
+                                <div className="flex-1 min-w-0">
                                     <p className="text-sm font-medium text-muted-foreground">Correo Corporativo</p>
-                                    <a href="mailto:contacto@navarrow.com.ar" className="text-lg font-semibold hover:text-accent transition-colors">
+                                    <a href="mailto:contacto@navarrow.com.ar" className="text-base sm:text-lg font-semibold hover:text-accent transition-colors break-all">
                                         contacto@navarrow.com.ar
                                     </a>
                                 </div>
                             </div>
 
+                            {/* ÍTEM UBICACIÓN  */}
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
                                     <MapPin className="w-6 h-6 text-accent" />
                                 </div>
-                                <div>
+                                <div className="flex-1 min-w-0">
                                     <p className="text-sm font-medium text-muted-foreground">Ubicación</p>
-                                    <p className="text-lg font-semibold">
+                                    <p className="text-base sm:text-lg font-semibold truncate">
                                         Corrientes, Argentina
                                     </p>
                                 </div>
                             </div>
 
+                            {/* ÍTEM WHATSAPP  */}
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
                                     <MessageSquare className="w-6 h-6 text-primary" />
                                 </div>
-                                <div className="flex flex-col items-start gap-1">
+                                <div className="flex flex-col items-start gap-1 flex-1 min-w-0">
                                     <p className="text-sm font-medium text-muted-foreground">Atención Directa</p>
 
-                                    <Button asChild className="bg-[#25D366] hover:bg-[#128C7E] text-white gap-2 mt-1 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5">
+                                    <Button asChild className="bg-[#25D366] hover:bg-[#128C7E] text-white gap-2 mt-1 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto overflow-hidden">
                                         <a
                                             href="https://wa.me/5493794003967"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <Smartphone className="w-4 h-4" />
-                                            Iniciar chat por WhatsApp
+                                            <Smartphone className="w-4 h-4 shrink-0" />
+                                            <span className="truncate">Iniciar chat por WhatsApp</span>
                                         </a>
                                     </Button>
                                 </div>
@@ -98,7 +98,7 @@ export function ContactSection() {
                     </div>
 
                     {/* Columna Derecha: Formulario Estratégico */}
-                    <div className="bg-background rounded-2xl p-8 border border-border shadow-lg">
+                    <div className="bg-background rounded-2xl p-4 sm:p-8 border border-border shadow-lg">
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid sm:grid-cols-2 gap-4">
                                 <div className="space-y-2">
@@ -144,11 +144,11 @@ export function ContactSection() {
 
                             <Button
                                 type="submit"
-                                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground gap-2 text-lg py-6"
+                                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground gap-2 text-base sm:text-lg py-4 sm:py-6 whitespace-normal h-auto"
                                 disabled={isSubmitting}
                             >
-                                {isSubmitting ? "Enviando..." : "Solicitar diagnóstico gratuito"}
-                                {!isSubmitting && <Send className="w-5 h-5" />}
+                                <span>{isSubmitting ? "Enviando..." : "Solicitar diagnóstico gratuito"}</span>
+                                {!isSubmitting && <Send className="w-5 h-5 shrink-0" />}
                             </Button>
                         </form>
                     </div>
