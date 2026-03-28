@@ -5,6 +5,7 @@ import { AdvantageSection } from "@/components/advantage-section"
 import { PortfolioSection } from "@/components/portfolio-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
+import { WhatsAppButton } from "@/components/whatsapp-button"
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <PortfolioSection />
       <ContactSection />
       <Footer />
+      <WhatsAppButton/>
     </main>
   )
 }
