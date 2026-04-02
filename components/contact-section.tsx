@@ -12,19 +12,50 @@ import {
     SelectValue
 } from "@/components/ui/select"
 import { Mail, MapPin, MessageSquare, Send, Smartphone } from "lucide-react"
+import { useToast } from '@/hooks/use-toast'
 
 export function ContactSection() {
     const [isSubmitting, setIsSubmitting] = useState(false)
+    const { toast } = useToast()
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setIsSubmitting(true)
 
-        // Webhook de n8n para más adelante
-        setTimeout(() => {
+        const form = e.currentTarget
+        const formData = new FormData(form)
+
+        try {
+            const response = await fetch('https://formspree.io/f/maqljqng', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+
+            if (response.ok) {
+                toast({
+                    title: "¡Mensaje enviado con éxito!",
+                    description: "En breve nos pondremos en contacto para analizar tu proyecto.",
+                })
+                form.reset()
+            } else {
+                toast({
+                    variant: "destructive",
+                    title: "Hubo un problema",
+                    description: "No pudimos procesar tu solicitud. Por favor, intentá nuevamente.",
+                })
+            }
+        } catch (error) {
+            toast({
+                variant: "destructive",
+                title: "Error de conexión",
+                description: "Verificá tu conexión a internet e intentá nuevamente.",
+            })
+        } finally {
             setIsSubmitting(false)
-            alert("¡Mensaje enviado! Nos pondremos en contacto a la brevedad.")
-        }, 1500)
+        }
     }
 
     return (
@@ -32,7 +63,6 @@ export function ContactSection() {
             <div className="container mx-auto px-6 max-w-6xl">
                 <div className="grid lg:grid-cols-2 gap-16 items-start">
 
-                    {/* Columna Izquierda: Trust Signals e Información */}
                     <div className="space-y-8">
                         <div>
                             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
@@ -45,7 +75,7 @@ export function ContactSection() {
                             </p>
                         </div>
 
-                        <div className="space-y-6 overflow-hidden"> {/* Ocultamos desbordes extraños */}
+                        <div className="space-y-6 overflow-hidden">
 
                             {/* ÍTEM CORREO  */}
                             <div className="flex items-center gap-4">

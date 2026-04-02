@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { Toaster } from "@/components/ui/toaster"
 import './globals.css'
 
 const geistSans = Geist({
@@ -14,11 +15,16 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://navarrow.com.ar'),
   title: 'NavArrow | Desarrollo Web y Soporte Técnico',
   description: 'Expertos en desarrollo de software y soporte técnico especializado para Pymes. Impulsamos su negocio con soluciones tecnológicas reales y profesionales.',
-  keywords: ['Desarrollo Web Corrientes', 'Soporte Técnico PC', 'Programación React .NET', 'Digitalización Pymes', 'NavArrow', 'Soluciones IT'],
+  keywords: ['Desarrollo Web Corrientes', 'Soporte Técnico PC', 'Programación', 'Digitalización Pymes', 'NavArrow', 'Soluciones IT', 'Desarrollo de Software', 'Mantenimiento Técnico', 'Automatización de Procesos', 'Consultoría Tecnológica', 'Desarrollo a Medida', 'Servicios IT Corrientes', 'Transformación Digital'],
   authors: [{ name: 'NavArrow Team' }],
   creator: 'NavArrow',
+  
+  alternates: {
+    canonical: '/',
+  },
   
   openGraph: {
     title: 'NavArrow | Soluciones Digitales',
@@ -80,6 +86,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased overflow-x-hidden">
         {children}
+        <Toaster />
         <Analytics />
       </body>
     </html>

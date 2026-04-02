@@ -1,12 +1,80 @@
-import { ArrowUpRight, Sparkles, Layout, Code, Monitor } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+"use client"
+
+import { useState } from "react"
+import Image from "next/image"
+import { ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { ProjectCard, Project } from "@/components/project-card"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+
+// --- DATOS DEL PORTFOLIO ---
+const portfolioData: Record<string, Project[]> = {
+  webs: [
+    {
+      id: "louli",
+      title: "Louli Studio",
+      category: "Plataforma de Gestión y Reservas",
+      description: "Landing page moderna con UX/UI & SEO optimizados para un centro de estética.",
+      fullDescription: "Landing page moderna con UX/UI & SEO optimizados para un centro de estética.",
+      tags: ["React", "Next.js", "Tailwind CSS"],
+      mainImage: "/placeholder.jpg",
+      galleryImages: ["/placeholder.jpg", "/placeholder.jpg", "/placeholder.jpg"],
+      color: "accent",
+      link: "https://louli.com.ar"
+    },
+    {
+      id: "navarnica",
+      title: "Navarnica",
+      category: "E-Commerce",
+      description: "Tienda online moderna con catálogo dinámico y carrito de compras para ventas locales.",
+      fullDescription: "E-commerce desarrollado desde cero enfocado en la velocidad y la experiencia del usuario. Incluye un catálogo dinámico con filtros, integración de pasarelas de pago locales, y un panel autogestionable para que el dueño del negocio pueda actualizar precios y stock sin depender de terceros.",
+      tags: ["Next.js", "React", "C#", "Stripe"],
+      mainImage: "/placeholder.jpg",
+      galleryImages: ["/placeholder.jpg", "/placeholder.jpg", "/placeholder.jpg"],
+      color: "primary"
+    }
+  ],
+  software: [
+    {
+      id: "codebites",
+      title: "CodeBites",
+      category: "Plataforma EdTech",
+      description: "Plataforma de micro-learning y snippets de código para desarrolladores.",
+      fullDescription: "Una plataforma educativa diseñada para consumir píldoras de conocimiento (bites) de programación. Cuenta con sistema de autenticación seguro, perfiles de usuario, guardado de snippets favoritos y un editor de código integrado en el navegador para practicar en tiempo real.",
+      tags: ["React", ".NET", "SQL Server", "JWT"],
+      mainImage: "/placeholder.jpg",
+      galleryImages: ["/placeholder.jpg", "/placeholder.jpg"],
+      color: "primary"
+    },
+    {
+      id: "eventflow",
+      title: "Eventflow",
+      category: "App de Gestión de Eventos",
+      description: "Red social orientada a la creación y asistencia de eventos comunitarios en tiempo real.",
+      fullDescription: "Aplicación web progresiva (PWA) que conecta a organizadores de eventos con su comunidad. Permite crear eventos con geolocalización, gestionar listas de invitados mediante códigos QR y enviar notificaciones push en tiempo real a los asistentes.",
+      tags: ["Next.js", "C#", "PostgreSQL", "WebSockets"],
+      mainImage: "/placeholder.jpg",
+      galleryImages: ["/placeholder.jpg", "/placeholder.jpg", "/placeholder.jpg", "/placeholder.jpg"],
+      color: "accent"
+    }
+  ]
+}
 
 export function PortfolioSection() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const handleOpenProject = (project: Project) => {
+    setSelectedProject(project)
+    setIsModalOpen(true)
+  }
+
   return (
     <section id="portfolio" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
+        
         {/* Encabezado */}
         <div className="text-center mb-12">
           <span className="text-accent font-semibold uppercase tracking-wider text-sm">
@@ -21,90 +89,102 @@ export function PortfolioSection() {
         <Tabs defaultValue="webs" className="w-full">
           <div className="flex justify-center mb-12">
             <TabsList className="bg-background border border-border p-1">
-              <TabsTrigger value="webs">Sitios Web</TabsTrigger>
-              <TabsTrigger value="software">Software</TabsTrigger>
+              <TabsTrigger value="webs" className="px-6">Sitios Web</TabsTrigger>
+              <TabsTrigger value="software" className="px-6">Software</TabsTrigger>
             </TabsList>
           </div>
 
-          {/*Webs de Negocios */}
-          <TabsContent value="webs">
-            <div className="max-w-4xl mx-auto">
-              {renderBusinessProject()}
+          <TabsContent value="webs" className="mt-0">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {portfolioData.webs.map((project) => (
+                <ProjectCard key={project.id} project={project} onClick={() => handleOpenProject(project)} />
+              ))}
             </div>
           </TabsContent>
 
-          {/*Proyectos de Software */}
-          <TabsContent value="software">
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {renderCodeBites()}
-              {renderEventflow()}
+          <TabsContent value="software" className="mt-0">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {portfolioData.software.map((project) => (
+                <ProjectCard key={project.id} project={project} onClick={() => handleOpenProject(project)} />
+              ))}
             </div>
           </TabsContent>
         </Tabs>
-
-        {/* CTA Final */}
-        <div className="text-center mt-16">
-          <Button variant="outline" size="lg" className="border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground">
-            Ver Todos los Proyectos
-          </Button>
-        </div>
       </div>
+
+      {/* MODAL DEL PROYECTO CON CARRUSEL */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="w-[95vw] sm:max-w-[700px] p-0 overflow-hidden max-h-[90vh] rounded-2xl flex flex-col">
+          {selectedProject && (
+            <>
+              {/* Carrusel de Imágenes en la cabecera del modal */}
+              <div className="relative bg-muted w-full">
+                <Carousel className="w-full">
+                  <CarouselContent>
+                    {selectedProject.galleryImages.map((imgSrc, index) => (
+                      <CarouselItem key={index}>
+                        <div className="relative aspect-video sm:aspect-[21/9] w-full">
+                          <Image 
+                            src={imgSrc} 
+                            alt={`${selectedProject.title} - Imagen ${index + 1}`} 
+                            fill 
+                            className="object-cover"
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  {/* Controles del carrusel (ocultos en pantallas muy chicas para no tapar la imagen) */}
+                  <div className="hidden sm:block">
+                    <CarouselPrevious className="left-4 bg-background/80 hover:bg-background" />
+                    <CarouselNext className="right-4 bg-background/80 hover:bg-background" />
+                  </div>
+                </Carousel>
+              </div>
+
+              {/* Información del Proyecto (Scrollable) */}
+              <div className="p-6 sm:p-8 overflow-y-auto">
+                <DialogHeader className="text-left mb-6">
+                  <div className="flex items-center justify-between gap-4 mb-2">
+                    <DialogTitle className="text-2xl sm:text-3xl text-primary font-bold">
+                      {selectedProject.title}
+                    </DialogTitle>
+                    {selectedProject.link && (
+                      <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-primary transition-colors" title="Visitar proyecto">
+                        <ExternalLink className="w-6 h-6" />
+                      </a>
+                    )}
+                  </div>
+                  <p className="text-sm font-medium text-accent uppercase tracking-wider">
+                    {selectedProject.category}
+                  </p>
+                </DialogHeader>
+
+                <DialogDescription className="text-base text-muted-foreground leading-relaxed mb-6">
+                  {selectedProject.fullDescription}
+                </DialogDescription>
+
+                <div className="mb-6">
+                  <h4 className="font-semibold text-primary mb-3">Tecnologías utilizadas:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.tags.map(tag => (
+                      <span key={tag} className="px-3 py-1.5 bg-secondary text-secondary-foreground rounded-md text-sm font-medium">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-border">
+                  <Button onClick={() => setIsModalOpen(false)} className="w-full sm:w-auto">
+                    Cerrar galería
+                  </Button>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
-  )
-}
-
-
-function renderBusinessProject() {
-  return (
-    <Card className="md:col-span-2 group overflow-hidden border-border hover:border-accent/30 transition-all duration-300 bg-card">
-      <CardContent className="p-0">
-        <div className="relative h-64 md:h-80 bg-gradient-to-br from-accent/20 via-primary/10 to-accent/5 flex items-center justify-center">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-30" />
-          <div className="relative text-center px-8">
-            <Layout className="w-12 h-12 text-accent mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-primary mb-2">Plataforma de Gestión Empresarial</h3>
-            <p className="text-muted-foreground italic">Solución para Estética y Bienestar</p>
-          </div>
-        </div>
-        <div className="p-6">
-          <div className="flex gap-2 mb-4">
-            <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-medium">React</span>
-            <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-medium">.NET</span>
-          </div>
-          <p className="text-muted-foreground mb-4">Gestión de turnos e inventario optimizada para negocios locales.</p>
-          <button className="flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all">
-            Ver Caso de Éxito <ArrowUpRight className="w-4 h-4" />
-          </button>
-        </div>
-      </CardContent>
-    </Card>
-  )
-}
-
-function renderCodeBites() {
-  return (
-    <Card className="group border-border hover:border-accent/30 transition-all bg-card">
-      <CardContent className="p-6">
-        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-          <Code className="w-6 h-6 text-primary" />
-        </div>
-        <h3 className="text-lg font-bold text-primary mb-2">CodeBites</h3>
-        <p className="text-muted-foreground text-sm">Plataforma de snippets y aprendizaje para desarrolladores.</p>
-      </CardContent>
-    </Card>
-  )
-}
-
-function renderEventflow() {
-  return (
-    <Card className="group border-border hover:border-accent/30 transition-all bg-card">
-      <CardContent className="p-6">
-        <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
-          <Monitor className="w-6 h-6 text-accent" />
-        </div>
-        <h3 className="text-lg font-bold text-primary mb-2">Eventflow</h3>
-        <p className="text-muted-foreground text-sm">Red Social orientada a la creacion de eventos comunitarios.</p>
-      </CardContent>
-    </Card>
   )
 }
