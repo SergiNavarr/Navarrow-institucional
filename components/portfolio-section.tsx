@@ -24,17 +24,6 @@ const portfolioData: Record<string, Project[]> = {
       color: "accent",
       link: "https://louli.com.ar"
     },
-    {
-      id: "navarnica",
-      title: "Navarnica",
-      category: "E-Commerce",
-      description: "Tienda online moderna con catálogo dinámico y carrito de compras para ventas locales.",
-      fullDescription: "E-commerce desarrollado desde cero enfocado en la velocidad y la experiencia del usuario. Incluye un catálogo dinámico con filtros, integración de pasarelas de pago locales, y un panel autogestionable para que el dueño del negocio pueda actualizar precios y stock sin depender de terceros.",
-      tags: ["Next.js", "React", "C#", "Stripe"],
-      mainImage: "/placeholder.jpg",
-      galleryImages: ["/placeholder.jpg", "/placeholder.jpg", "/placeholder.jpg"],
-      color: "primary"
-    }
   ],
   software: [
     {
