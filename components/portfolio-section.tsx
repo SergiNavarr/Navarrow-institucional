@@ -19,8 +19,8 @@ const portfolioData: Record<string, Project[]> = {
       description: "Landing page moderna con UX/UI & SEO optimizados para un centro de estética.",
       fullDescription: "Landing page moderna con UX/UI & SEO optimizados para un centro de estética.",
       tags: ["React", "Next.js", "Tailwind CSS"],
-      mainImage: "/placeholder.jpg",
-      galleryImages: ["/placeholder.jpg", "/placeholder.jpg", "/placeholder.jpg"],
+      mainImage: "/portfolio/louli/louli-thumbnail.png",
+      galleryImages: ["/portfolio/louli/louli-main.png", "/portfolio/louli/louli-services.png", "/portfolio/louli/louli-feed.png"],
       color: "accent",
       link: "https://louli.com.ar"
     },
@@ -44,7 +44,7 @@ const portfolioData: Record<string, Project[]> = {
       description: "Plataforma de micro-learning y snippets de código para desarrolladores.",
       fullDescription: "Una plataforma educativa diseñada para consumir píldoras de conocimiento (bites) de programación. Cuenta con sistema de autenticación seguro, perfiles de usuario, guardado de snippets favoritos y un editor de código integrado en el navegador para practicar en tiempo real.",
       tags: ["React", ".NET", "SQL Server", "JWT"],
-      mainImage: "/placeholder.jpg",
+      mainImage: "/portfolio/codebites/codebites-thumbnail.png",
       galleryImages: ["/placeholder.jpg", "/placeholder.jpg"],
       color: "primary"
     },

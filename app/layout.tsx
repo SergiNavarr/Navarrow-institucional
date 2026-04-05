@@ -25,6 +25,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
+  },
   
   openGraph: {
     title: 'NavArrow | Soluciones Digitales',
@@ -72,7 +77,6 @@ export default function RootLayout({
     priceRange: '$$',
     sameAs: [
       'https://github.com/SergiNavarr',
-      'https://linkedin.com/in/tu-perfil'
     ]
   }
 
